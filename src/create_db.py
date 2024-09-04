@@ -1,11 +1,15 @@
 import sqlite3
+import os
 
-DB_PATH = "quiz.db"
+
+# Get curr path
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_PATH = BASE_DIR + '/quiz.db'
 
 def create_db():
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
-    with open('quiz.sql') as file:
+    with open(BASE_DIR + "/quiz.sql") as file:
         cursor.executescript(file.read())
     conn.commit()
     conn.close()

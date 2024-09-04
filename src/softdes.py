@@ -9,14 +9,15 @@ from flask import Flask, request, jsonify, abort, make_response, session, render
 from flask_httpauth import HTTPBasicAuth
 from datetime import datetime
 import sqlite3
-import json
 import hashlib
+import os
 
-DBNAME = './quiz.db'
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DBNAME = BASE_DIR + '/quiz.db'
 
 def lambda_handler(event, context):
     try:
-        import json 
+        import json
         import numbers
         
         def not_equals(first, second):

@@ -55,6 +55,18 @@ python adduser.py
 python softdes.py
 ```
 
+## Run with docker
+
+1. Build the image
+```sh
+docker compose build
+```
+
+2. Run the application
+```sh
+docker compose up
+```
+
 ## About the aplication
 Flask based Code Exercises server that interacts with SQLite, in each the main api call fetches all the quizzes and evaluates the user answers. 
 The code itself is not safe, mainly because you can create an user with admin permissions by calling it "fabioja". This allows the user to see every quiz from the server, even those who aren't released yet. Also, if the user creates the the login credentials with the script `adduser.py`, the password will be the same as the user name. 
